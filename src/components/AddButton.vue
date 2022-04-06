@@ -1,6 +1,8 @@
 <template>
   <div>
-    <button :style="{ background: color }">{{ title }}</button>
+    <button @click="onClick()" :style="{ background: color }">
+      {{ title }}
+    </button>
   </div>
 </template>
 <script>
@@ -10,13 +12,19 @@ export default {
     title: String,
     color: String,
   },
+  methods: {
+    onClick() {
+      this.$emit("show-addTask");
+    },
+  },
 };
 </script>
 <style scoped>
 button {
-  background: black;
-  border-radius: 7px;
-  color: white;
+  border-radius: 5px;
+  padding: 8px;
   margin-left: 10px;
+  font-weight: 700;
+  border: none;
 }
 </style>
